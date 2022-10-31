@@ -13,6 +13,9 @@ ipykernel = "*"
 plotly = "*"
 plotly-express = "*"
 nbformat = "*"
+requests = "*"
+html5lib = "*"
+bs4 = "*"
 
 [dev-packages]
 
