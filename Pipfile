@@ -18,6 +18,8 @@ html5lib = "*"
 bs4 = "*"
 lxml = "*"
 python-dotenv = "*"
+dash = "*"
+dash-bootstrap-components = "*"
 
 [dev-packages]
 
