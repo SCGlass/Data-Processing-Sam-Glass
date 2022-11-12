@@ -18,23 +18,15 @@ import pandas as pd
 # saving as csv file to work with so we dont overload from the API
 # df.to_csv("Practise_tests\Boot_strap_tutorial\mystocks.csv", index=False)
 
-df = pd.read_csv(
-    "Practise_tests\Boot_strap_tutorial\mystocks.csv"
-)  # Now importing dataframe from file
+df = pd.read_csv( "Practise_tests\Boot_strap_tutorial\mystocks.csv")  # Now importing dataframe from file
 print(df[:15])
 
-app = dash.Dash(
-    __name__,
-    external_stylesheets=[
-        dbc.themes.BOOTSTRAP
-    ],  # using flask in background for the app adn setting the visual theme
-    meta_tags=[
-        {
-            "name": "viewport",  # The next two lines responds to a mobile layout and makes it smaller for that
-            "content": "width=device-width, initial-scale=1.0",
-        }
-    ],
-)
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP],  # using flask in background for the app adn setting the visual theme
+                meta_tags=[{'name': 'viewport',  # The next two lines responds to a mobile layout and makes it smaller for that
+                            'content': 'width=device-width, initial-scale=1.0'}],
+                )
+
+
 #   Layout section: Bootstrap
 # ------------------------------------------------------------------------------------
 app.layout = dbc.Container([
