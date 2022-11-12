@@ -15,11 +15,13 @@ import pandas as pd
 # df = df.stack().reset_index() # stacking the headers into one
 # print(df[:15]) # Shows the first 15 lines of the pulled dataframe
 
-# saving as csv file to work with so we dont have to pull from the API all the time
+# saving as csv file to work with so we dont overload from the API
 #df.to_csv("Practise_tests\Boot_strap_tutorial\mystocks.csv", index=False)
 
 df = pd.read_csv("Practise_tests\Boot_strap_tutorial\mystocks.csv") # Now importing dataframe from file
 print(df[:15])
+
+app = dash.Dash(__name__,external_stylesheets=[dbc.themes.BOOTSTRAP]) #using flask in background for the app adn setting the visual theme
 
 
 
