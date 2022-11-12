@@ -20,6 +20,7 @@ lxml = "*"
 python-dotenv = "*"
 dash = "*"
 dash-bootstrap-components = "*"
+pandas-datareader = "*"
 
 [dev-packages]
 
