@@ -47,7 +47,7 @@ app.layout = dbc.Container(
                     html.H1(
                         "Stock Market Dashboard",
                         className="text-center text-primary, mb-4", # makes center and blue mb4 gives a little space under the title
-                    )
+                    wide=12)
                 )  
             ]
         ),
