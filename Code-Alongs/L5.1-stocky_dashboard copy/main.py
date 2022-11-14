@@ -1,22 +1,18 @@
 import dash
-import dash_bootstrap_components as dbc
 import os
 from load_data import StockData
-from dash import html, dcc  # dcc - dash core components
 from dash.dependencies import Output, Input
 import plotly_express as px
 from time_filtering import filter_time
 import pandas as pd
+from layout import Layout
 
 directory_path = os.path.dirname(__file__)
 path = os.path.join(directory_path, "stocksdata")
 
-print(path)
 
 stockdata_object = StockData(path)
 
-# pick one stock
-# print(stockdata_object.stock_dataframe("AAPL"))
 
 symbol_dict = {"AAPL": "Apple", "NVDA": "Nvidia", "TSLA": "Tesla", "IBM": "IBM"}
 
@@ -37,32 +33,13 @@ slider_marks = {
     )
 }
 
-print(df_dict.keys())
-# print(df_dict["TSLA"][0])
+
 
 # create a Dash App
 app = dash.Dash(__name__)
 
-app.layout = html.Main(
-    [
-        html.H1("Techy stocks viewer"),
-        html.P("Choose a stock"),
-        dcc.Dropdown(
-            id="stockpicker-dropdown",
-            options=stock_options_dropdown,
-            value="AAPL",
-        ),
-        html.P(id="highest-value"),
-        html.P(id="lowest-value"),
-        dcc.RadioItems(id="ohlc-radio", options=ohlc_options, value="close"),
-        dcc.Graph(id="stock-graph"),
-        dcc.Slider(
-            id="time-slider", min=0, max=6, marks=slider_marks, value=2, step=None
-        ),
-        # storing intermediate value on clients browser in order to share between several callbacks
-        dcc.Store(id="filtered-df"),
-    ]
-)
+app.layout = Layout(symbol_dict).layout()
+    
 
 
 @app.callback(
