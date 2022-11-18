@@ -21,6 +21,7 @@ python-dotenv = "*"
 dash = "*"
 dash-bootstrap-components = "*"
 pandas-datareader = "*"
+numexpr = "*"
 
 [dev-packages]
 
